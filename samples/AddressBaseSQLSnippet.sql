@@ -1,0 +1,13 @@
+SELECT BLPU.UPRN AS uprn, 
+CLASSIFICATION_CODE AS class_code, 
+X_COORDINATE AS x,
+Y_COORDINATE AS y
+-- only need to change these two rows for epoch
+FROM [dbo].[ABP_E109_BLPU] BLPU
+LEFT JOIN [dbo].[ABP_E109_CLASSIFICATION] CLASS
+--
+ON BLPU.uprn = CLASS.UPRN
+WHERE CLASSIFICATION_CODE IN ('CR02PO', 'OR01')
+AND CLASS_SCHEME = 'AddressBase Premium Classification Scheme'
+AND LOGICAL_STATUS != 8 
+AND COUNTRY IN ('E','W')
