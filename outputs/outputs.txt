@@ -1,0 +1,1 @@
+This directory will contain output shapefiles and maps. Delete any that aren't needed.
